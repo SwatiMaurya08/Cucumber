@@ -39,4 +39,10 @@ public class Login {
         System.out.println(table.asMaps());
         System.out.println(table.getTableConverter());
     }
+
+    @When(": User login in to application with (.+) and (.+)$")
+    public void userLoginInToApplicationWithUsernameAndPassword(String username , String password) {
+        System.out.println(username);
+        System.out.println(password);
+    }
 }
