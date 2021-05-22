@@ -26,7 +26,7 @@ public class Login {
 
     @Then(": Cards are displayed {string}")
     public void cards_are_displayed(String cardstatus) {
-        System.out.println("Cards status is shown" );
+        System.out.println("Cards status is shown");
         System.out.println(cardstatus);
 
     }
@@ -41,8 +41,23 @@ public class Login {
     }
 
     @When(": User login in to application with (.+) and (.+)$")
-    public void userLoginInToApplicationWithUsernameAndPassword(String username , String password) {
+    public void userLoginInToApplicationWithUsernameAndPassword(String username, String password) {
         System.out.println(username);
         System.out.println(password);
+    }
+    
+    @When("Browser is Triggered")
+    public void browserIsTriggered() {
+        System.out.println("Browser is Triggered");
+    }
+
+    @Given("Validate the Browser")
+    public void validateTheBrowser() {
+        System.out.println("Validate the Browser");
+    }
+
+    @Then("Check if Browser is started")
+    public void checkIfBrowserIsStarted() {
+        System.out.println("Check if Browser is started");
     }
 }

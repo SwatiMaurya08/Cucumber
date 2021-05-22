@@ -1,6 +1,11 @@
 Feature: Application Login
 
-  @RegTest
+  Background:
+    Given Validate the Browser
+    When  Browser is Triggered
+    Then  Check if Browser is started
+
+  @RegTest @SmokeTest
   Scenario: Home page default Login
     Given : User is on NetBanking landing page
     When  : User login into application with "jin" and password "1234"
