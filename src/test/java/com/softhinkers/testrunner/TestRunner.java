@@ -2,13 +2,16 @@ package com.softhinkers.testrunner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+
+import static com.softhinkers.common.BaseTest.getDriver;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = "com.softhinkers.stepdefinition", features = "src/test/resources/",
         stepNotifications = true,
         plugin = {"pretty" , "html:target/cucumber.html","json:target/cucumber.json",
-        "junit:target/cucumber.xml"} , dryRun = true , monochrome = true)
+        "junit:target/cucumber.xml"} , monochrome = true)
 //pretty is used for the purpose of giving colors  to the reports results
 //tags = "@SmokeTest or @RegTest")
 //tags = "not @SanityTest" if you don't want to execute @sanityTest we can  write like this also
@@ -23,9 +26,14 @@ import org.junit.runner.RunWith;
 
 
 
-//We use monochrome option inside @CucumberOptions annotation.his option can either set as true or false. true:
+//We use monochrome option inside @CucumberOptions annotation this option can either set as true or false. true:
 // it means that the console output for the Cucumber test are much more readable and remove
 // any unreadable character. false: then the console output is not as readable as it should be.
 public class TestRunner {
+    @AfterClass
+    public static void tearDown() {
+        getDriver().close();
+        getDriver().quit();
+    }
 
 }
